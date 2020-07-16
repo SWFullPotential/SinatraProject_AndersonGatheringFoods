@@ -14,9 +14,9 @@
 ActiveRecord::Schema.define(version: 20200715214818) do
 
   create_table "meals", force: :cascade do |t|
-    t.string   "day"
-    t.string   "meal"
-    t.string   "user_id"
+    t.string   "day_meal"
+    t.string   "food"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

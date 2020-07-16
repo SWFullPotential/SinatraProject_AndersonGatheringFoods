@@ -14,3 +14,6 @@ I will need a User/Family model and a Meal model.
 
 There will need to be a homepage that will have links for the user to choose to sign up, or view the list of meals and who has already chosen. **may need help figuring that one out** 
 
+------
+
+Instead of having a list of meals to choose from for the user, i could have the 'home' page, I could have the home page, once logged in, say "please select and create a meal that you would like to be in charge of. We will need meals planned for Lunch Friday, through breakfast Sunday." Then show a list of existing meals planned(from other users) to prevent the current user from choosing the same meal(s) as someone else. 

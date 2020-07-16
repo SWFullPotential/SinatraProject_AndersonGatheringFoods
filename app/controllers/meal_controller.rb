@@ -1,9 +1,8 @@
 class MealController < ApplicationController
 
-
-    get "/new" do 
-        @user = User.find(session[:user_id])
-        erb :'meals/new' 
-      end
+  get '/meals' do 
+    redirect_to_if_not_logged_in
+    erb :'meals/index'
+  end
     
 end
