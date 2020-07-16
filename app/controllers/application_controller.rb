@@ -14,20 +14,6 @@ class ApplicationController < Sinatra::Base
     # erb :welcome
   end
 
- 
-  get "/mealpick" do 
-    @user = User.find(session[:user_id])
-    erb :'meals/mealpick' 
-  end
-
- 
-
-  get "/error" do 
-    erb :'users/error'
-  end
-
- 
-
 
   helpers do 
     def logged_in?

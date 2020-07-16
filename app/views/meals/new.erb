@@ -1,0 +1,11 @@
+<h1>Welcome and thanks for helping out!</h1>
+
+<p>This will be where the form is for picking a meal</p>
+<h3>Select the meal(s) you will be in charge of.</h3>
+<br>
+<% @meals.each do |meal| %>
+    <input type="checkbox" name="user[meal_id]" id="<%= meal.id %>" value="<%= meal.id %>"><%= meal.day %> - <%= meal.meal %><br>
+    <%end%>
+    <br>
+
+<p><a href="/all">All Meals</a> <a href="/logout">Logout</a></p>
