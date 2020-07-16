@@ -33,6 +33,7 @@ class ApplicationController < Sinatra::Base
     def login_user(user)
       session[:user_id] = user.id 
     end
+    
   end
 
 end

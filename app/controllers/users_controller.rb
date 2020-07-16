@@ -1,12 +1,12 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
     # use Rack::Flash
 
-    get "/signup" do 
+    get '/signup' do 
         redirect_to_if_logged_in
         erb :'users/new'
       end
     
-    post "/signup" do 
+    post '/signup' do 
         user = User.new(username: params[:username], password: params[:password])
             if user.save
             login_user(user)
@@ -16,12 +16,12 @@ class UserController < ApplicationController
             end
     end 
 
-    get "/login" do 
+    get '/login' do 
         redirect_to_if_logged_in
         erb :'users/login'
       end 
 
-    post "/login" do 
+    post '/login' do 
         user = User.find_by(username: params[:username])
 
             if user && user.authenticate(params[:password])
@@ -33,26 +33,29 @@ class UserController < ApplicationController
     end
 
     
-    get "/logout" do 
+    get '/logout' do 
         session.clear 
         redirect "/login"
     end
 
-
-
-
-
-
-
-
-    get '/users' do 
-        @users = User.all 
+    get '/users/:id' do 
+        user = User.find_by_if(params[:id]) 
         erb :'/users/index'
     end
 
-    post '/users' do 
-        @user = User.create(params[:user])
-    end
+
+
+
+
+
+    # get '/users' do 
+    #     @users = User.all 
+    #     erb :'/users/index'
+    # end
+
+    # post '/users' do 
+    #     @user = User.create(params[:user])
+    # end
     
 
 end
