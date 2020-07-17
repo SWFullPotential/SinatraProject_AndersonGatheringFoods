@@ -2,11 +2,15 @@
 <hr>
 <h2>Existing Meals</h2>
 <% @meals.each do |meal|%>
-    <p><%= meal.day_meal %> - <%= meal.food %> - <a href="/edit">Edit</a></p>
+    <p><%= meal.day_meal %> - <%= meal.food %> - <%= meal.user.username %>
+    <% if current_user.owns_meal?(meal) %>
+        <a href="/meals/<%= meal.id %>/edit">Edit</a></p>
+    <% end %>
 
 <% end %>
-
-<a href="/meals/new">Sign Up for Another Meal</a>
 <hr>
+<br>
+<br>
+<a href="/meals/new">Sign Up for Another Meal</a>
 <p><a href="/logout">Log Out</a> 
 

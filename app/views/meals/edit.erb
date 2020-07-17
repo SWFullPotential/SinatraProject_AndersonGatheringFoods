@@ -1,6 +1,21 @@
+        <h1>Edit Meal</h1>
+        <br>
         <form action='/meals/<%= @meal.id %>' method="POST">
         <input type="hidden" name="_method" value="patch">
-        Day & Meal: <input type="text" name="day_meal" id="day_meal" value="<%= @meal.day_meal %>"><br>
+        <div>
+        Day & Meal: <input type="text" name="day_meal" id="day_meal" value="<%= @meal.day_meal %>">
+        </div>
+        <br>
+        <div>
         Food: <input type="text" name="food" id="food" value="<%= @meal.food %>">
-        <input type="submit" value="Edit Meal" id="sumbit">
+        </div>
+        <br>
+        <br>
+        <input type="submit" value="Update Meal" id="sumbit">
+        <br>        
+        </form>
+        <br>
+        <form action='/meals/<%= @meal.id %>' method="POST">
+        <input type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete">
         </form>

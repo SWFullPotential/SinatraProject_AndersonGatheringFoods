@@ -1,6 +1,10 @@
-<p><%= @meal.day_meal %> - <%= @meal.food %></p>
-<p><a href="/meals/<%= @meal.id %>/edit" id="Edit"></a></p>
-<form action="/meals/<%= @meal.id %>" method="POST">
+<% @meals.each do |meal| %>
+    <p><%= meal.day_meal %> - <%= meal.food %> - <%= meal.user.username %>
+    <% if current_user.owns_meal?(meal) %>
+        <a href="/meals/<%= meal.id %>/edit">Edit</a></p>
+    <% end %>
+<form action="/meals/<%= meal.id %>" method="POST">
     <input type="hidden" name="_method" value="delete">
     <input type="submit" value="Delete">
 </form>
+<% end %>
