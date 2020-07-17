@@ -1,0 +1,6 @@
+<p><%= @meal.day_meal %> - <%= @meal.food %></p>
+<p><a href="/meals/<%= @meal.id %>/edit" id="Edit">Edit</a></p>
+<form action="/tweets/<%= @meal.id %>" method="POST"><
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+/form>

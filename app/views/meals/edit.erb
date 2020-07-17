@@ -1,0 +1,6 @@
+        <form action='/meals/<%= @meal.id %>' method="POST">
+        <input type="hidden" name="_method" value="patch">
+        Day & Meal: <input type="text" name="day_meal" id="day_meal" value="<%= @meal.day_meal %>"><br>
+        Food: <input type="text" name="food" id="food" value="<%= @meal.food %>">
+        <input type="submit" value="Edit Meal" id="sumbit">
+        </form>

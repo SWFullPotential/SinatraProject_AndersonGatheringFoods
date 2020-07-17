@@ -37,25 +37,5 @@ class UsersController < ApplicationController
         session.clear 
         redirect "/login"
     end
-
-    get '/users/:id' do 
-        user = User.find_by_if(params[:id]) 
-        erb :'/users/index'
-    end
-
-
-
-
-
-
-    # get '/users' do 
-    #     @users = User.all 
-    #     erb :'/users/index'
-    # end
-
-    # post '/users' do 
-    #     @user = User.create(params[:user])
-    # end
     
-
 end

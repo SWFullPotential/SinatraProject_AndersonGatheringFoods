@@ -1,3 +1,8 @@
 <h1>Welcome, Family!</h1>
 <hr>
+<% @meals.each do |meal|%>
+    <p><%= meal.day_meal %> - <%= meal.food %></p>
+<% end %>
+
+
 <p><a href="/logout">Log Out</a></p>

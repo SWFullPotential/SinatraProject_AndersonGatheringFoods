@@ -3,4 +3,5 @@ class Meal < ActiveRecord::Base
 
     validates :day_meal, presence: true, uniqueness: true
     
+
 end
