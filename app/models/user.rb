@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
     
     has_secure_password
 
+    def owns_meal?(meal)
+        self.meals.included?(meal)
+    end
+
 end

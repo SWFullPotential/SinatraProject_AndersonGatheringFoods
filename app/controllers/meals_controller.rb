@@ -8,7 +8,7 @@ class MealsController < ApplicationController
   
   get '/meals/new' do 
     redirect_to_if_not_logged_in
-    erb :'meal/new'
+    erb :'meals/new'
   end
   
   post '/meals' do 
@@ -25,19 +25,32 @@ class MealsController < ApplicationController
     set_meal
     erb :'meals/show'
   end
-
+  
   get '/meals/:id/edit' do 
+    redirect_to_if_not_logged_in
     set_meal  
+    if current_user.owns_meal?(@meal)
     erb :'/meals/edit'
+    else
+      redirect '/meals'
+    end
   end
 
   patch '/meals/:id' do 
     set_meal
-    if @meal.update(params)
+    if @meal.update(day_meal: params[:day_meal], food: params[:food]) 
       redirect '/meals'
     else
       redirect "/tweets/#{@meal.id}/edit"
     end
+  end
+
+  delete '/meals/:id' do 
+    set_meal  
+    if logged_in? && current_user.owns_meal?(@meal)
+      @meal.destroy 
+    end
+      redirect '/meals'
   end
   
   private
