@@ -14,7 +14,30 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="wrapper">
+    <nav>
+      <ul>
+        <% unless logged_in? %>
+        <li><a href="/signup">Sign Up</a></li>
+        <li><a href="/login">Login</a></li>
+      <% else %>
+        <li><%= current_user.username %></li>
+        <li><a href="/logout">Logout</a></li>
+        <% end %>
+      </ul>
+    </nav>
+      <% if flash[:error]%>
+          <% flash[:error].each do |error|%>
+          <div>
+            <%= error %>
+          </div>
+          <% end %>
+      <% end %>
+      <% if flash[:error] %>
+        <div>
+        <%= flash[:notice]%>
+        </div>
+      <% end %>
+        <div class="wrapper">
 
         <%= yield %>
 

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-    # use Rack::Flash
+
+    use Rack::Flash
 
     get '/signup' do 
         redirect_to_if_logged_in
@@ -12,7 +13,8 @@ class UsersController < ApplicationController
             login_user(user)
             redirect "/meals"
             else
-            redirect "/signup"
+                flash.now[:error] = user.errors.full_messages
+                redirect "/signup"
             end
     end 
 
@@ -28,6 +30,7 @@ class UsersController < ApplicationController
             login_user(user)
             redirect "/meals"
             else
+            flash.now[:error] = ["Invalid Username or Password"]
             redirect "/login"
             end
     end

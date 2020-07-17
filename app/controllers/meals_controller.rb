@@ -1,4 +1,6 @@
 class MealsController < ApplicationController
+  use Rack::Flash 
+
 
   get '/meals' do 
     redirect_to_if_not_logged_in
@@ -12,10 +14,11 @@ class MealsController < ApplicationController
   end
   
   post '/meals' do 
-    meal = current_user.meals.build(params) #sets user_id to current the current_user's id
+    meal = current_user.meals.build(params) #sets user_id to the current_user's id
     if meal.save 
       redirect '/meals'
     else
+      flash.now[:error] = meal.errors.full_message
       redirect '/meals/new'
     end
   end
@@ -38,7 +41,6 @@ class MealsController < ApplicationController
   end
 
   patch '/meals/:id' do 
-    # @meals = Meal.all
     set_meal
     if @meal.update(day_meal: params[:day_meal], food: params[:food]) 
       redirect '/meals'

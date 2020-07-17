@@ -1,10 +1,13 @@
 <% @meals.each do |meal| %>
-    <p><%= meal.day_meal %> - <%= meal.food %> - <%= meal.user.username %>
+    <p><%= meal.day_meal %> - <%= meal.food %> - <%= meal.user.username %><br>
     <% if current_user.owns_meal?(meal) %>
         <a href="/meals/<%= meal.id %>/edit">Edit</a></p>
     <% end %>
-<form action="/meals/<%= meal.id %>" method="POST">
+    <form action="/meals/<%= meal.id %>" method="POST">
     <input type="hidden" name="_method" value="delete">
+     <% if current_user.owns_meal?(meal) %>
     <input type="submit" value="Delete">
-</form>
+     <% end %>
+     <hr>
+    </form>
 <% end %>

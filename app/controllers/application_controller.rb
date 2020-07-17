@@ -2,11 +2,17 @@ require './config/environment'
 
 class ApplicationController < Sinatra::Base
 
+  
+  require 'rack-flash'
+  
+  
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    set :session_secret, ENV['SINATRA_SECRET']
+    use Rack::Flash
+    set :session_secret, "PortfolioProject2"
+    # ENV['SINATRA_SECRET']
   end
 
   get "/" do
