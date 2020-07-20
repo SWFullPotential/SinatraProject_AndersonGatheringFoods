@@ -1,10 +1,10 @@
-<h1>Welcome, <%= current_user.username %>  Family!</h1>
+<h1 class="center">Welcome, <%= current_user.username %>  Family!</h1>
 <hr>
 <h2>Existing Meals</h2>
 <% @meals.each do |meal|%>
     <p><%= meal.day_meal %> - <%= meal.food %> - <%= meal.user.username %>
     <% if current_user.owns_meal?(meal) %>
-        <a href="/meals/<%= meal.id %>/edit">Edit</a></p>
+        <a href="/meals/<%= meal.id %>/edit" class="btn-floating pulse"><i class="material-icons">edit</i></a></p>
     <% end %>
 
 <% end %>

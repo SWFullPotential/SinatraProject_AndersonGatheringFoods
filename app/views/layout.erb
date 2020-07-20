@@ -14,22 +14,29 @@
 
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<!--Import Google Icon Font-->
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      
+   
   </head>
-  <body>
-    
-    <nav>
-      <ul class="right">
-        <% unless logged_in? %>
-        <li><a href="/signup">Sign Up</a></li>
-        <li><a href="/login">Login</a></li>
-      <% else %>
-        <li><%= current_user.username %></li>
-        <li><a href="/logout">Logout</a></li>
-        <% end %>
-      </ul>
+  <body class="green accent-3">
+    <!-- Navigation -->
+    <nav class="brown darken-3">
+      <div class="container">
+        <a href="/meals">Home</a>
+        <ul class="right">
+          <% unless logged_in? %>
+          <li><a href="/signup">Sign Up</a></li>
+          <li><a href="/login">Login</a></li>
+        <% else %>
+          <li><%= current_user.username %></li>
+          <li><a href="/logout">Logout</a></li>
+          <% end %>
+        </ul>
+      </div>
     </nav>
+        <!-- Navigation End -->
+        <!-- Error Messages -->
       <% if flash[:error]%>
           <% flash[:error].each do |error|%>
           <div>
@@ -42,18 +49,27 @@
         <%= flash[:notice]%>
         </div>
       <% end %>
-
+        <!-- Error Messages End -->
+        <!-- Main Content -->
+      <div class="container">
         <%= yield %>
+        </div>
+        <!-- Main Content End -->
 
-      <footer class="branding">
-        <small>&copy; 2020 <strong>AndersonGatheringFoods</strong></small>
-      </footer>
-    </div>
-
+<hr>
+      <div class="container text-brown text-darken-4">
+        <footer class="branding">
+          <small>&copy; 2020 <strong>AndersonGatheringFoods</strong></small>
+        </footer>
+      </div>
+    <!-- Javascripts -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
     <![endif]-->
+    <!-- Javascripts End -->
   </body>
 </html>

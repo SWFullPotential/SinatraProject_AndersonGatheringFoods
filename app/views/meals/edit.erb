@@ -1,4 +1,4 @@
-        <h1>Edit Meal</h1>
+        <h1 class="center">Edit Meal</h1>
         <br>
         <form action='/meals/<%= @meal.id %>' method="POST">
         <input type="hidden" name="_method" value="patch">
@@ -11,11 +11,11 @@
         </div>
         <br>
         <br>
-        <input type="submit" value="Update Meal" id="sumbit">
+        <input class="btn-small z-depth-3" type="submit" value="Update Meal" id="sumbit">
         <br>        
         </form>
         <br>
         <form action='/meals/<%= @meal.id %>' method="POST">
         <input type="hidden" name="_method" value="delete">
-        <input type="submit" value="Delete">
+        <input class="btn-small z-depth-3" type="submit" value="Delete">
         </form>
