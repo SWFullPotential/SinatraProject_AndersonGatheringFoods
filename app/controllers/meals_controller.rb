@@ -1,5 +1,4 @@
 class MealsController < ApplicationController
-  use Rack::Flash 
 
 
   get '/meals' do 
@@ -18,7 +17,7 @@ class MealsController < ApplicationController
     if meal.save 
       redirect '/meals'
     else
-      flash.now[:error] = meal.errors.full_message
+      flash[:error] = meal.errors.full_message
       redirect '/meals/new'
     end
   end
