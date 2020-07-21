@@ -3,40 +3,62 @@
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
-  <head>
+<!--[if gt IE 8]><!--> 
+<html class="no-js" lang="en"> <!--<![endif]-->
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
 
     <title>AndersonMealSignUp</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<!--Import Google Icon Font-->
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-      
-   
-  </head>
-  <body class="green accent-3">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+.w3-row-padding img {margin-bottom: 12px}
+/* Set the width of the sidebar to 120px */
+.w3-sidebar {width: 120px;background: #222;}
+/* Add a left margin to the "page content" that matches the width of the sidebar (120px) */
+#main {margin-left: 120px}
+/* Remove margins from "page content" on small screens */
+@media only screen and (max-width: 600px) {#main {margin-left: 0}}
+</style>
+<body class="w3-black">
+>
     <!-- Navigation -->
-    <nav class="brown darken-3">
-      <div class="container">
-        <a href="/meals">Home</a>
-        <ul class="right">
+<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+        <a href="/" class="w3-bar-item w3-button w3-padding-large w3-black">
+    <i class="fa fa-home w3-xxlarge"></i>
+    <p>Home</p>
+    </a>
           <% unless logged_in? %>
-          <li><a href="/signup">Sign Up</a></li>
-          <li><a href="/login">Login</a></li>
+          <a href="/signup" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-user-plus w3-xxlarge"></i>
+    <p>Sign Up</p>
+  </a>
+          <a href="/login" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-user w3-xxlarge"></i>
+    <p>Login</p>
+  </a>
         <% else %>
-          <li><%= current_user.username %></li>
-          <li><a href="/logout">Logout</a></li>
+          <h3><%= current_user.username %></h3>
+          <a href="/meals" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-list w3-xxlarge"></i>
+    <p>Meals</p>
+          <a href="/logout" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+    <i class="fa fa-sign-out w3-xxlarge"></i>
+    <p>Logout</p>
+  </a>
           <% end %>
-        </ul>
-      </div>
+
     </nav>
         <!-- Navigation End -->
+        <!-- Main Content -->
+        <%= yield %>
+        
         <!-- Error Messages -->
+        <div class="w3-padding-large" id="main">
       <% if flash[:error]%>
           <% flash[:error].each do |error|%>
           <div>
@@ -49,19 +71,12 @@
         <%= flash[:notice]%>
         </div>
       <% end %>
+      </div>
         <!-- Error Messages End -->
-        <!-- Main Content -->
-      <div class="container">
-        <%= yield %>
-        </div>
+     
         <!-- Main Content End -->
 
-<hr>
-      <div class="container text-brown text-darken-4">
-        <footer class="branding">
-          <small>&copy; 2020 <strong>AndersonGatheringFoods</strong></small>
-        </footer>
-      </div>
+
     <!-- Javascripts -->
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 
@@ -71,5 +86,6 @@
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
     <![endif]-->
     <!-- Javascripts End -->
+    <!--</div>-->
   </body>
 </html>

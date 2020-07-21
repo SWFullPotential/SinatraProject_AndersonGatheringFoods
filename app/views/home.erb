@@ -1,5 +1,16 @@
-<h1 class="center">Welcome to the Anderson Family Meal Sign-Up!</h1>
 
-<h3>Making Family Gatherings a little less stressful.</h3>
+<div class="w3-padding-large" id="main">
+<header class="w3-container w3-padding-32 w3-center w3-grey" id="home">
+<h1 class="w3-jumbo"><span class="w3-hide-small">Anderson Gathering</span> Meal Sign-Up</h1>
+    <p>Making life a little less stressful.</p>
+    <img src="https://cdn.pixabay.com/photo/2019/10/08/02/40/trees-4534005_960_720.png" alt="boy" class="w3-image" width="992" height="1108">
+  </header>
+  <% if logged_in?%>
+  <div class="w3-container w3-padding-32 w3-center">
+  <a href="/meals" class="w3-bar-item w3-button w3-padding-large">
+    <i class="fa fa-list w3-xxlarge"></i>
+    <p>Meals</p>
+    </div>
+    <% end %>
+  </div>
 
-<p> Please <a href="/signup">Sign Up</a> or <a href="/login">Log In</a> to proceed</p>
