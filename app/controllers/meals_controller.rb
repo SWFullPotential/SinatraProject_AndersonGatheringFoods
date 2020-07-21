@@ -17,7 +17,7 @@ class MealsController < ApplicationController
     if meal.save 
       redirect '/meals'
     else
-      flash[:error] = meal.errors.full_message
+      flash[:error] = ["Day & Meal Cannot Be Empty"]
       redirect '/meals/new'
     end
   end
