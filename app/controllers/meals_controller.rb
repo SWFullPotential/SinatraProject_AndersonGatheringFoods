@@ -17,7 +17,7 @@ class MealsController < ApplicationController
     if meal.save 
       redirect '/meals'
     else
-      flash[:error] = ["Day & Meal Cannot Be Empty"]
+      flash[:error] = ["Day & Meal Must be Unique & Cannot Be Empty"]
       redirect '/meals/new'
     end
   end
