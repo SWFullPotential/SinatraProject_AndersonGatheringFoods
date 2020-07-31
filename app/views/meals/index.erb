@@ -4,10 +4,7 @@
 <hr>
 <h2>Existing Meals</h2>
 <% @meals.each do |meal|%>
-    <p><%= meal.day_meal %> - <%= meal.food %> - <%= meal.user.username %>
-    <% if current_user.owns_meal?(meal) %>
-        <a href="/meals/<%= meal.id %>/edit" class="btn-floating pulse"><i class="material-icons">edit</i></a></p>
-    <% end %>
+    <p><a href="/meals/<%= meal.id %>"><%= meal.day_meal %> - <%= meal.food %> - <%= meal.user.username %>
 
 <% end %>
 <hr>

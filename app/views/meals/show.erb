@@ -1,18 +1,24 @@
 <div class="w3-padding-large" id="main">
 <header class="w3-container w3-padding-32 w3-center w3-grey" id="show">
 
-<% @meals.each do |meal| %>
-    <p><%= meal.day_meal %> - <%= meal.food %> - <%= meal.user.username %><br>
-    <% if current_user.owns_meal?(meal) %>
-        <a href="/meals/<%= meal.id %>/edit" class="btn-floating pulse"><i class="material-icons">edit</i></a></p>
+
+    <p><%= @meal.day_meal %> - <%= @meal.food %> - <%= @meal.user.username %>
+    <% if current_user.owns_meal?(@meal) %>
+    <a href="/meals/<%= @meal.id %>/edit" class="btn-floating btn-small waves-effect waves-light w3-grey text-darken-4"><i class="material-icons">edit</i></a></p>
     <% end %>
-    <form action="/meals/<%= meal.id %>" method="POST">
+    <form action="/meals/<%= @meal.id %>" method="POST">
     <input type="hidden" name="_method" value="delete">
-     <% if current_user.owns_meal?(meal) %>
-    <input type="submit" value="" class="btn-floating pulse"><i class="material-icons">delete</i>
+     <% if current_user.owns_meal?(@meal) %>
+  <button class="btn-small waves-effect waves-light w3-grey text-darken-4" type="submit" name="action">
+    <i class="material-icons right">delete</i>
+  </button>
      <% end %>
      <hr>
     </form>
-<% end %>
+  <div class="w3-container w3-padding-24 w3-center">
+  <a href="/meals" class="w3-bar-item w3-button w3-padding-large">
+    <i class="fa fa-list w3-xxlarge"></i>
+    <p>All Meals</p>
+    </div>
 
 </div>

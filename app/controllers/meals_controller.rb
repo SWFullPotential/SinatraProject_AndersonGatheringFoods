@@ -8,6 +8,7 @@ class MealsController < ApplicationController
   end
   
   get '/meals/new' do 
+    # binding.pry
     redirect_to_if_not_logged_in
     erb :'meals/new'
   end
@@ -15,7 +16,7 @@ class MealsController < ApplicationController
   post '/meals' do 
     meal = current_user.meals.build(params) #sets user_id to the current_user's id
     if meal.save 
-      redirect '/meals'
+      redirect "/meals/#{meal.id}"
     else
       flash[:error] = ["Day & Meal Must be Unique & Cannot Be Empty"]
       redirect '/meals/new'
@@ -24,7 +25,7 @@ class MealsController < ApplicationController
   
   get '/meals/:id' do 
     redirect_to_if_not_logged_in
-    @meals = Meal.all
+    # @meals = Meal.all
     set_meal
     erb :'meals/show'
   end
