@@ -44,7 +44,7 @@ class MealsController < ApplicationController
     if @meal.update(day_meal: params[:day_meal], food: params[:food]) 
       redirect '/meals'
     else
-      redirect "/tweets/#{@meal.id}/edit"
+      redirect "/meals/#{@meal.id}/edit"
     end
   end
 
