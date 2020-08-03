@@ -14,7 +14,7 @@ class MealsController < ApplicationController
   end
   
   post '/meals' do 
-    meal = current_user.meals.build(params) #sets user_id to the current_user's id
+    meal = current_user.meals.build(params) #Returns a new object of the meals type that has been instantiated with attributes and linked to this object through the join table (sets user_id to the current_user's id), but has not yet been saved.
     if meal.save 
       redirect "/meals/#{meal.id}"
     else
