@@ -7,11 +7,9 @@ class ApplicationController < Sinatra::Base
   
   
   configure do
-    #In its simplest form, the set method takes a setting name and value and creates an attribute on the application.
     set :public_folder, 'public'
     set :views, 'app/views'
     enable :sessions
-    #The enable and disable methods are sugar for setting a list of settings to true or false, respectively.
     set :session_secret, "PortfolioProject2"
     register Sinatra::Flash
     # ENV['SINATRA_SECRET']
